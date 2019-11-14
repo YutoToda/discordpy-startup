@@ -17,5 +17,10 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('pong')
 
+@bot.command()
+async def set_members(ctx):  
+    for member in ctx.guild.members:  
+        role = discord.utils.find(lambda r: r.name == '一般提督', ctx.guild.roles)  
+        await member.add_roles(role)  
 
 bot.run(token)
